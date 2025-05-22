@@ -66,9 +66,15 @@ body {
 
 .infografia {
     color: black;
-    font-family: var(--fuente-terciaria);
     padding: 20px;
     border-radius: 10px;
+    font-family: monospace;
+}
+
+.infografia h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: Rock Salt, sans-serif;
 }
 
 .infografia ul {
