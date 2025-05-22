@@ -1,19 +1,29 @@
+/* Importamos fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Agdasima:wght@400;700&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Rock+Salt&family=Rouge+Script&family=Shadows+Into+Light&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* Variables CSS */
 :root {
-    --color-primario: #004AAD;
-    --color-secundario: #6AB187;
+    --color-primario: #ffee00;
+    --color-secundario: #FF6200;
     --color-alerta: #E07A5F;
-    --color-fondo: #F8F8F8;
-    --color-texto: #333333;
-    --fuente-principal: sans-serif;
+    --color-texto: #ffffff;
+    --fuente-principal: Space Mono, sans-serif;
+    --fuente-secundaria: Agdasima, sans-serif;
+    --fuente-terciaria: Indie Flower, sans-serif;
 }
 
 /* Estilos Generales  */
 body {
-    font-family: var(--fuente-principal);
     margin: 0;
     padding: 0;
     color: var(--color-texto);
+    grid-template-rows: auto 1fr auto;
+}
+
+.main-nav {
+    background: #303030;
+    background: linear-gradient(0deg, rgba(48, 48, 48, 1) 0%, rgba(99, 99, 99, 1) 100%);
+    font-family: var(--fuente-secundaria);
 }
 
 .container {
@@ -22,37 +32,48 @@ body {
     padding: 20px;
 }
 
-.principal {
-    background-color: var(--color-fondo);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.info-principal {
+    background: #ba8900;
+    background: linear-gradient(0deg, rgba(255, 215, 128, 1) 0%, rgba(186, 137, 0, 1) 100%);
 }
 
 .titulo-principal h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--color-primario);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
 }
 
 .titulo-principal p {
-    font-size: 1.1rem;
+    font-size: 2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
+    font-family: var(--fuente-secundaria);
 }
 
-.titulo-principal .btn-primary {
-    background-color: var(--color-primario);
-    border-color: var(--color-primario);
-}
-
-.titulo-principal .btn-primary:hover {
-    background-color: #003380;
-    border-color: #003380;
+.dshbrd-btn {
+    background-color: var(--color-secundario);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .explicaciones {
     margin-top: 20px;
+    font-family: var(--fuente-terciaria);
+}
+
+.infografia {
+    color: black;
+    font-family: var(--fuente-terciaria);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.infografia ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 .card-grid {
@@ -81,5 +102,17 @@ body {
 @media (min-width: 768px) {
     .card-grid {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Estilos para móviles (donde el footer no es fijos) */
+@media (max-width: 767px) {
+    nav {
+        position: static;
+    }
+
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
