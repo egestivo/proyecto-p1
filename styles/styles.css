@@ -124,6 +124,44 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
+//degradado soluciones 
+.soluciones {
+    background: #2e5200;
+    background: linear-gradient(0deg, rgba(67, 114, 35, 1) 0%, rgba(46, 82, 0, 1) 100%);
+}
+
+.soluciones-card, .formulario{
+    padding: 20px;
+    border-radius: 10px;
+    font-family: var(--fuente-terciaria);
+}
+
+.soluciones-card h5{
+    font-family: monospace;
+}
+.formulario h2{
+    font-family: monospace;
+}
+//colores de tarjetas
+.row > .col-md-6:nth-child(4n+1) .soluciones-card {
+  background: linear-gradient(135deg, #ffb347, #ffcc33); /* Amarillo-naranja */
+  color: white;
+}
+
+.row > .col-md-6:nth-child(4n+2) .soluciones-card {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Morado-azul */
+  color: white;
+}
+
+.row > .col-md-6:nth-child(4n+3) .soluciones-card {
+  background: linear-gradient(135deg, #43cea2, #185a9d); /* Verde-azul */
+  color: white;
+}
+
+.row > .col-md-6:nth-child(4n+4) .soluciones-card {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371); /* Rosa-anaranjado */
+  color: white;
+}
 
 .footer {
     background: #020024;
