@@ -1,0 +1,86 @@
+/* Importamos fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Agdasima:wght@400;700&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Rock+Salt&family=Rouge+Script&family=Shadows+Into+Light&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Variables CSS */
+:root {
+    --color-primario: #ffee00;
+    --color-secundario: #FF6200;
+    --color-alerta: #E07A5F;
+    --color-texto: #ffffff;
+    --color-boton-hover: #ff9100;
+    --color-boton-hover-texto: #222;
+    --fuente-principal: Space Mono, sans-serif;
+    --fuente-secundaria: Agdasima, sans-serif;
+    --fuente-terciaria: Indie Flower, sans-serif;
+    --fuente-cuaternaria: Permanent Marker, sans-serif;
+    --fuente-quinta: Pacifico, sans-serif;
+    --fuente-sexta: Shadows Into Light, sans-serif;
+    --fuente-septima: Rouge Script, sans-serif;
+    --fuente-octava: Aclonica, sans-serif;
+    --fuente-novena: Rock Salt, sans-serif;
+}
+
+/* Estilos Generales  */
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--color-texto);
+    grid-template-rows: auto 1fr auto;
+}
+
+.main-nav {
+    background: #303030;
+    background: linear-gradient(0deg, rgba(48, 48, 48, 1) 0%, rgba(99, 99, 99, 1) 100%);
+    font-family: var(--fuente-secundaria);
+}
+
+.calidad-aire {
+    padding: 2rem;
+    text-align: center;
+    background: #d3ebf2;
+    background: linear-gradient(0deg, rgba(211, 235, 242, 1) 1%, rgba(255, 255, 255, 1) 100%);
+}
+
+.calidad-aire h3 {
+    font-family: var(--fuente-novena);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.calidad-aire p {
+    font-family: var(--fuente-cuaternaria);
+    font-size: 1.5rem;
+}
+
+.semaforo-class {
+    transition: all 0.3s ease;
+}
+
+.semaforo-class:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.footer {
+    background: #020024;
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(62, 62, 199, 1) 16%, rgba(212, 250, 255, 1) 100%);
+    color: var(--color-texto);
+    padding: 20px;
+    text-align: center;
+    font-family: var(--fuente-octava)
+}
+
+@media (min-width: 768px) {}
+
+/* Estilos para móviles (donde el footer no es fijos) */
+@media (max-width: 767px) {
+    nav {
+        position: static;
+    }
+
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

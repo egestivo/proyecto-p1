@@ -21,10 +21,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="soluciones.html">Soluciones</a>
@@ -35,27 +35,78 @@
     </nav>
 
     <!--c82e4638a4462d17cbe7eed6487cebe9be97d93f mi token-->
-    <div id='map' >
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <div class="container-fluid mt-3">
+        <div class="row g-4 flex-column-reverse flex-lg-row card-grid">
+            <div class="col-12 col-lg-8">
+                <div class="card h-100">
+                    <div id="map" style="height: 100%; min-height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 d-flex align-items-center justify-content-center">
+                <div
+                    class="container-fluid calidad-aire card text-center h-100 d-flex flex-column justify-content-center w-100">
+                    <h3>Calidad del aire</h3>
+                    <div class="semaforo d-flex flex-column align-items-center justify-content-center"
+                        style="min-height: 250px;">
+                        <div class="semaforo-class d-flex align-items-center my-2 w-100">
+                            <img src="img/semaforo-rojo.png" alt="Semáforo rojo"
+                                style="height: 60px; max-height: 100%;">
+                            <p class="text-center mb-0 ms-3 flex-grow-1 d-flex align-items-center justify-content-center"
+                                style="min-height: 60px;">
+                                Aire muy dañino
+                            </p>
+                        </div>
+                        <div class="semaforo-class d-flex align-items-center my-2 w-100">
+                            <img src="img/semaforo-amarillo.png" alt="Semáforo amarillo"
+                                style="height: 60px; max-height: 100%;">
+                            <p class=" text-center mb-0 ms-3 flex-grow-1 d-flex align-items-center justify-content-center"
+                                style="min-height: 60px;">
+                                Aire moderado
+                            </p>
+                        </div>
+                        <div class="semaforo-class d-flex align-items-center my-2 w-100">
+                            <img src="img/semaforo-verde.png" alt="Semáforo verde"
+                                style="height: 60px; max-height: 100%;">
+                            <p class=" text-center mb-0 ms-3 flex-grow-1 d-flex align-items-center justify-content-center"
+                                style="min-height: 60px;">
+                                Aire bueno
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <section id="chart-contaminacion" class="container-fluid mt-3">
+        <div class="row card-grid">
+            <div class="col-lg-4 card">
+                <h3>Observa los niveles de contaminación en tiempo real</h3>
+            </div>
+            <div class="col-lg-8 card">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </section>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(-0.1807,  -78.4678),
+            center: new google.maps.LatLng(-0.1807, -78.4678),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoom: 11
         });
 
-        var t = new Date().getTime();
         var waqiMapOverlay = new google.maps.ImageMapType({
             getTileUrl: function (coord, zoom) {
                 return 'https://tiles.aqicn.org/tiles/usepa-aqi/' + zoom + "/" + coord.x + "/" + coord.y + ".png?token=c82e4638a4462d17cbe7eed6487cebe9be97d93f";
             },
-            name: "Air  Quality",
+            name: "Calidad del Aire",
         });
 
-        map.overlayMapTypes.insertAt(0, waqiMapOverlay);  
+        map.overlayMapTypes.insertAt(0, waqiMapOverlay);
     </script>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
