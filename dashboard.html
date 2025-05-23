@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles-dshbrd.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg main-nav bg-dark fs-3" data-bs-theme="dark">
+        <div class="container ">
+            <a class="navbar-brand fs-1" href="#">Bolvair-EC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="soluciones.html">Soluciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--c82e4638a4462d17cbe7eed6487cebe9be97d93f mi token-->
+    <div id='map' style='height:380px;'>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script>
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(-0.1807,  -78.4678),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            zoom: 11
+        });
+
+        var t = new Date().getTime();
+        var waqiMapOverlay = new google.maps.ImageMapType({
+            getTileUrl: function (coord, zoom) {
+                return 'https://tiles.aqicn.org/tiles/usepa-aqi/' + zoom + "/" + coord.x + "/" + coord.y + ".png?token=c82e4638a4462d17cbe7eed6487cebe9be97d93f";
+            },
+            name: "Air  Quality",
+        });
+
+        map.overlayMapTypes.insertAt(0, waqiMapOverlay);  
+    </script>
+    </div>
+</body>
+
+</html>

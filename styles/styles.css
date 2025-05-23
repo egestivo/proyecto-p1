@@ -7,9 +7,17 @@
     --color-secundario: #FF6200;
     --color-alerta: #E07A5F;
     --color-texto: #ffffff;
+    --color-boton-hover: #ff9100;
+    --color-boton-hover-texto: #222;
     --fuente-principal: Space Mono, sans-serif;
     --fuente-secundaria: Agdasima, sans-serif;
     --fuente-terciaria: Indie Flower, sans-serif;
+    --fuente-cuaternaria: Permanent Marker, sans-serif;
+    --fuente-quinta: Pacifico, sans-serif;
+    --fuente-sexta: Shadows Into Light, sans-serif;
+    --fuente-septima: Rouge Script, sans-serif;
+    --fuente-octava: Aclonica, sans-serif;
+    --fuente-novena: Rock Salt, sans-serif;
 }
 
 /* Estilos Generales  */
@@ -57,11 +65,28 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: var(--fuente-octava);
+}
+
+.dshbrd-btn:hover {
+    background-color: var(--color-boton-hover);
+    color: var(--color-boton-hover-texto);
+    transition: all 0.3s ease;
+    transform: scale(1.05);
 }
 
 .explicaciones {
-    margin-top: 20px;
     font-family: var(--fuente-terciaria);
+}
+
+.explicaciones h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: var(--fuente-secundaria);
+    color: var(--color-alerta);
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .infografia {
@@ -92,17 +117,21 @@ body {
     border: 1px solid #dee2e6;
     border-radius: 10px;
     padding: 20px;
+    transition: all 0.3s ease;
 }
 
-.card h5 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--color-primario);
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
-.card p {
-    font-size: 1rem;
-    line-height: 1.5;
+.footer {
+    background: #020024;
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(62, 62, 199, 1) 16%, rgba(212, 250, 255, 1) 100%);
+    color: var(--color-texto);
+    padding: 20px;
+    text-align: center;
+    font-family: var(--fuente-octava)
 }
 
 @media (min-width: 768px) {

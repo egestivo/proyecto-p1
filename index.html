@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-lg main-nav bg-dark fs-3" data-bs-theme="dark">
         <div class="container ">
-            <a class="navbar-brand" href="#">Bolvair-EC</a>
+            <a class="navbar-brand fs-1" href="#">Bolvair-EC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,18 +55,23 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-6">
-                <section class="explicaciones text-center">
-                    <div class="card-grid d-flex flex-column">
-                        <div class="card align-self-center container-fluid">
-                            <h5>Partículas PM</h5>
-                            <p class="fs-4">
-                                Explicación sencilla de las partículas PM2.5...
+                <section class="explicaciones text-center h-100 d-flex align-items-center" style="min-height: 100%;">
+                    <div class="card-grid d-flex flex-column align-items-center justify-content-center w-100 gap-4">
+                        <div class="card container-fluid">
+                            <h3>Partículas PM</h3>
+                            <p class="fs-5">
+                                Las partículas PM2.5 y PM10 son contaminación del aire de distinto tamaño: las PM2.5 son
+                                tan diminutas (2.5 micras) que entran profundo en tus pulmones y son más dañinas,
+                                mientras que las PM10 (10 micras) son un poco más grandes pero igual perjudiciales
+                                para tu salud respiratoria.
                             </p>
                         </div>
-                        <div class="card align-self-center container-fluid">
-                            <h5>Efectos en la Salud</h5>
-                            <p class="fs-4">
-                                Resumen de los problemas de salud asociados...
+                        <div class="card container-fluid">
+                            <h3>Efectos en la Salud</h3>
+                            <p class="fs-5">
+                                La exposición a PM2.5 y PM10 puede causar problemas respiratorios (asma, bronquitis),
+                                enfermedades cardíacas (infartos, accidentes cerebrovasculares), e incluso cáncer de
+                                pulmón, afectando más a niños, ancianos y personas con enfermedades preexistentes.
                             </p>
                         </div>
                     </div>
@@ -74,23 +79,23 @@
             </div>
             <div class="card col-md-6 infografia text-center container-fluid">
                 <h4>Sabías que</h4>
-                    <ul>
-                        <li>9 de cada 10 personas respiran aire contaminado.</li>
-                        <li>La contaminación causa millones de muertes al año.</li>
-                    </ul>
+                <ul>
+                    <li>9 de cada 10 personas respiran aire contaminado.</li>
+                    <li>La contaminación causa millones de muertes al año.</li>
+                </ul>
                 <section class="imagen-contaminacion">
                     <img src="img/Contaminacion_aire.png" alt="Contaminación del aire"
-                        class="img-fluid rounded mx-auto d-block" width="50%">
+                        class="img-fluid rounded mx-auto d-block" width="100%">
                 </section>
             </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-center text-lg-start mt-4 sticky-bottom">
-        <div class="text-center p-3">
+    <footer class="bg-dark text-center text-lg-start mt-4 sticky-bottom footer">
+        <div class="text-center p-3 fs-4">
             &copy; Bolvair-EC 2025 - Todos los derechos reservados
         </div>
-
+    </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
             crossorigin="anonymous"></script>
