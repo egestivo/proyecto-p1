@@ -62,6 +62,22 @@ body {
     transition: transform 0.3s ease;
 }
 
+.recomendaciones {
+    padding: 2rem;
+    text-align: center;
+}
+
+.recomendaciones h3 {
+    font-family: var(--fuente-novena);
+    font-size: 2rem;
+    font-weight: bolder;
+    background: linear-gradient(90deg, #ffee00 0%, #FF6200 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
 .footer {
     background: #020024;
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(62, 62, 199, 1) 16%, rgba(212, 250, 255, 1) 100%);
@@ -71,9 +87,6 @@ body {
     font-family: var(--fuente-octava)
 }
 
-@media (min-width: 768px) {}
-
-/* Estilos para móviles (donde el footer no es fijos) */
 @media (max-width: 767px) {
     nav {
         position: static;

@@ -1,32 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('myChart').getContext('2d');
 
-    // Función para determinar el nivel de severidad de un valor de contaminación.
     const getSeverityLevel = (value) => {
-        if (value > 70) return 2; // Rojo
-        if (value > 35) return 1; // Amarillo
-        return 0; // Verde
+        if (value > 70) return 2;
+        if (value > 35) return 1;
+        return 0;
     };
 
-    // Función para obtener el color de la línea según el nivel de severidad.
     const getLineColor = (severityLevel) => {
         switch (severityLevel) {
-            case 2: return 'rgba(220,53,69,1)';    // Rojo
-            case 1: return 'rgba(255,193,7,1)';   // Amarillo
-            default: return 'rgba(40,167,69,1)';  // Verde
+            case 2: return 'rgba(220,53,69,1)';
+            case 1: return 'rgba(255,193,7,1)';
+            default: return 'rgba(40,167,69,1)';
         }
     };
 
-    // Generación inicial de datos simulados
-    let data = Array.from({ length: 20 }, () => Math.floor(Math.random() * 100));
-    let labels = Array.from({ length: 20 }, (_, i) => i + 1);
+    // Solo 4 datos para 0, 1, 2, 3 segundos
+    let data = Array.from({ length: 4 }, () => Math.floor(Math.random() * 100));
+    let labels = [0, 1, 2, 3];
 
-    // Función para obtener el array de colores para cada segmento
+    let lastDirection = 1; // 1: sube, -1: baja
+
     const getSegmentColor = ctx => ctx.p0 && ctx.p1
         ? getLineColor(getSeverityLevel(ctx.p1.parsed.y))
         : 'rgba(40,167,69,1)';
 
-    // Dibuja una flecha en la punta de la línea
     const drawArrow = (chart) => {
         const meta = chart.getDatasetMeta(0);
         if (meta.data.length < 2) return;
@@ -51,11 +49,40 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineTo(-arrowSize, arrowSize / 2);
         ctx.closePath();
 
-        // Color según el último punto
         ctx.fillStyle = getLineColor(getSeverityLevel(data[data.length - 1]));
         ctx.fill();
         ctx.restore();
     };
+
+    // Modifica el setInterval para evitar valores constantes
+    setInterval(() => {
+        const last = data[data.length - 1];
+
+        // Cambia la dirección con mayor probabilidad si está mucho tiempo en el mismo rango
+        const currentLevel = getSeverityLevel(last);
+        const prevLevels = data.slice(-3).map(getSeverityLevel);
+        const sameLevelCount = prevLevels.filter(l => l === currentLevel).length;
+
+        // Si lleva 3 veces en el mismo nivel, fuerza cambio de dirección
+        if (sameLevelCount >= 3) {
+            lastDirection *= -1;
+        } else if (Math.random() < 0.3) {
+            lastDirection *= -1; // 30% de cambiar dirección aleatoriamente
+        }
+
+        // Movimiento más fuerte para salir del rango
+        let delta = Math.floor(Math.random() * 10 + 8) * lastDirection;
+        let next = Math.max(0, Math.min(100, last + delta));
+
+        // Si sigue igual, fuerza un salto mayor
+        if (getSeverityLevel(next) === currentLevel) {
+            next = Math.max(0, Math.min(100, last + delta * 1.5));
+        }
+
+        data = [...data.slice(1), next];
+        chart.data.datasets[0].data = data;
+        chart.update();
+    }, 3000);
 
     const chart = new Chart(ctx, {
         type: 'line',
@@ -135,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: {
                     title: {
                         display: true,
-                        text: 'Muestras de Tiempo',
+                        text: 'Segundos',
                         font: {
                             size: 14
                         },
@@ -143,6 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     grid: {
                         display: false
+                    },
+                    min: 0,
+                    max: 3,
+                    ticks: {
+                        stepSize: 1
                     }
                 },
                 y: {
@@ -172,12 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }]
     });
 
-    // Actualiza los datos del gráfico cada segundo para simular un flujo en tiempo real
+    // Actualiza cada 3 segundos
     setInterval(() => {
         const last = data[data.length - 1];
         const next = Math.max(0, Math.min(100, last + Math.floor(Math.random() * 21) - 10));
         data = [...data.slice(1), next];
         chart.data.datasets[0].data = data;
         chart.update();
-    }, 1000);
+    }, 3000);
 });
