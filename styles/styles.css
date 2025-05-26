@@ -189,6 +189,17 @@ textarea{
     transform: scale(1.05);
 }
 
+.funky-img img{
+    height: auto;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.funky-img img:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 767px) {
     .card {
         padding: 16px;
