@@ -190,9 +190,11 @@ textarea{
 }
 
 .funky-img img{
-    height: auto;
+    height: 100%;
     border-radius: 10px;
     transition: all 0.3s ease;
+    object-fit: cover;
+    width: 100%;
 }
 
 .funky-img img:hover {
